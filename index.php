@@ -22,13 +22,24 @@ $f3 -> route("GET /", function () {
 
 // Define a default route (view)
 $f3 -> route("GET|POST /order", function ($f3) {
-    session_destroy();
 
-    if (isset($_POST['animal'])) {
+
+    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $animal = $_POST['animal'];
 
         if (validString($animal)) {
             $_SESSION['animal'] = $animal;
+            switch (strtolower($animal)) {
+				case "dog":
+					$pet = new Dog();
+					break;
+				case "cat":
+					$pet = new Cat();
+					break;
+				default:
+					$pet = new Pet();
+			}
+			$_SESSION['pet'] = $pet;
             $f3->reroute('/order2');
         } else {
             $f3->set("errors['animal']", "Please enter an animal.");
@@ -40,16 +51,21 @@ $f3 -> route("GET|POST /order", function ($f3) {
 
 
 // Define a default route (view)
-$f3 -> route("GET|POST /order2", function () {
-    $view = new Template();
-    $_SESSION['animal'] = $_POST['animal'];
-    echo $view->render("views/form2.html");
+$f3 -> route("GET|POST /order2", function ($f3) {
+	if ($_SERVER['REQUEST_METHOD'] == "POST"){
+		$_SESSION['color'] = $_POST['color'];
+		$f3->reroute('/results');
+	}
+
+	$view = new Template();
+	echo $view->render("views/form2.html");
 });
 
 
 $f3 -> route("GET|POST /results", function () {
     $view = new Template();
-    $_SESSION['color'] = $_POST['color'];
+
+
     echo $view->render("views/results.html");
 });
 

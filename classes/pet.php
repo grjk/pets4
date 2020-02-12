@@ -10,12 +10,12 @@ class Pet {
         $this->_color = $color;
     }
 
-    function setName($name) {
-        $this->_name = $name;
-    }
-
     function getName() {
         return $this->_name;
+    }
+
+    function setName($name) {
+        $this->_name = $name;
     }
 
     function setColor($color) {

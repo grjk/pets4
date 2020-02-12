@@ -36,6 +36,9 @@ $f3 -> route("GET|POST /order", function ($f3) {
 				case "cat":
 					$pet = new Cat();
 					break;
+				case "snake":
+					$pet = new Snake();
+					break;
 				default:
 					$pet = new Pet();
 			}

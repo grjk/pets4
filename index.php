@@ -14,84 +14,29 @@ session_start();
 $f3 = Base::Instance();
 $f3->set('colors', array('pink', 'green', 'blue'));
 
+$controller = new defaultController($f3);
+
 // Define a default route (view)
 $f3 -> route("GET /", function () {
-    $view = new Template();
-    echo $view->render("views/home.html");
+	$GLOBALS['controller']->home();
 });
 
 // Define a default route (view)
-$f3 -> route("GET|POST /order", function ($f3) {
-
-
-    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-        $animal = $_POST['animal'];
-
-        if (validString($animal)) {
-            $_SESSION['animal'] = $animal;
-            switch (strtolower($animal)) {
-				case "dog":
-					$pet = new Dog();
-					break;
-				case "cat":
-					$pet = new Cat();
-					break;
-				case "snake":
-					$pet = new Snake();
-					break;
-				default:
-					$pet = new Pet();
-			}
-			$_SESSION['pet'] = $pet;
-            $f3->reroute('/order2');
-        } else {
-            $f3->set("errors['animal']", "Please enter an animal.");
-        }
-    }
-    $view = new Template();
-    echo $view->render("views/form1.html");
+$f3 -> route("GET|POST /order", function () {
+	$GLOBALS['controller']->form1();
 });
 
 
 // Define a default route (view)
 $f3 -> route("GET|POST /order2", function ($f3) {
-	if ($_SERVER['REQUEST_METHOD'] == "POST"){
-        $_SESSION['pet']->setColor($_POST['color']);
-        $_SESSION['pet']->setName($_POST['name']);
-		$f3->reroute('/results');
-	}
-
-	$view = new Template();
-	echo $view->render("views/form2.html");
+	$GLOBALS['controller']->form2();
 });
 
 
 $f3 -> route("GET|POST /results", function () {
-    $view = new Template();
-
-
-    echo $view->render("views/results.html");
+    $GLOBALS['controller']->form3();
 });
 
-
-
-$f3->route('GET /@animal',function ($f3, $params) {
-//    var_dump($params);
-    $animal = $params['animal'];
-    if ($animal == 'chicken') {
-        echo "<p>Cluck!</p>";
-    } elseif ($animal == 'dog') {
-        echo "<p>Woof!</p>";
-    }elseif ($animal == 'snake') {
-        echo "<p>SSsssss!</p>";
-    }elseif ($animal == 'anteater') {
-        echo "<p>Slurp!</p>";
-    }elseif ($animal == 'vulture') {
-        echo "<p>The sound of eating a corpse!</p>";
-    } else {
-        $f3->error(404);
-    }
-});
 
 // Run Fat-Free
 $f3->run();

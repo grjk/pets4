@@ -11,7 +11,7 @@
     </label>
 
     <select name="color">
-		<label><option value="{{ @SESSION.pet->getColor() }}">{{ ucfirst(@SESSION.pet->getColor() }}</label><br>
+		<label><option value="{{ @SESSION.pet->getColor() }}">{{ ucfirst(@SESSION.pet->getColor()) }}</label><br>
 
         <repeat group="{{ @colors }}" value="{{ @color }}">
             <option value="{{ @color }}">{{ @color }}</option>

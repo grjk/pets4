@@ -6,6 +6,10 @@
 </head>
 <body>
 <form method="post" action="#">
+    <label>Name:
+        <input type="text" name="name" value="{{ @SESSION.pet->getName() }}">
+    </label>
+
     <select name="color">
 		<label><option value="">Select a color</label><br>
 

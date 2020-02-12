@@ -6,9 +6,9 @@
 </head>
 <body>
 <form method="post" action="#">
-    <labeL>Animal:
-        <input type="text" name="animal">
-    </labeL>
+    <label>Animal:
+        <input type="text" name="animal" value="{{ @SESSION.pet->getType() }}">
+    </label>
     <input type="submit" value="Submit">
 </form>
 </body>

@@ -56,7 +56,8 @@ $f3 -> route("GET|POST /order", function ($f3) {
 // Define a default route (view)
 $f3 -> route("GET|POST /order2", function ($f3) {
 	if ($_SERVER['REQUEST_METHOD'] == "POST"){
-		$_SESSION['pet']->setColor($_POST['color']);
+        $_SESSION['pet']->setColor($_POST['color']);
+        $_SESSION['pet']->setName($_POST['name']);
 		$f3->reroute('/results');
 	}
 

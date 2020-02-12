@@ -6,7 +6,7 @@ class Pet {
     private $_type;
 
     // Default constructor / Parameterized constructor
-    function __construct($name = "unknown", $color = "?") {
+    function __construct($name = "", $color = "?") {
         $this->_name = $name;
         $this->_color = $color;
     }
@@ -44,10 +44,10 @@ class Pet {
     }
 
     function eat() {
-        echo $this->_name . " is eating<br>";
+        echo "eating<br>";
     }
 
     function talk() {
-        echo $this->_name . " is talking<br>";
+        echo "talking<br>";
     }
 }

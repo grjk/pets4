@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Order</title>
+</head>
+<body>
+<form method="post" action="#">
+    <select name="drinkSize">
+        <label><option value="green">Select a color</label><br>
+
+        <repeat group="{{ @colors }}" value="{{ @color }}">
+            <option>{{ @color }}</option>
+        </repeat>
+    </select>
+    <input type="submit" value="Submit">
+</form>
+</body>
+</html>

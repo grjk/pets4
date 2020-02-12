@@ -1,0 +1,16 @@
+{
+  "name": "328/pets4",
+  "authors": [
+    {
+      "name": "Joshua Kristiansen",
+      "email": "jkristiansen@mail.greenriver.edu"
+    },
+    {
+      "name": "Taras Gorbachevskiy",
+      "email": "tgorbachevskiy@mail.greenriver.edu"
+    }
+  ],
+  "require": {
+    "bcosca/fatfree-core": "dev-master"
+  }
+}

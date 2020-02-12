@@ -1,7 +1,4 @@
 <?php
-
-// Start sessiom
-session_start();
 // Turn on error reporting
 ini_set('display_errors', 1);
 error_reporting(E_ALL);
@@ -9,6 +6,9 @@ error_reporting(E_ALL);
 // Require autoload file
 require("vendor/autoload.php");
 require_once("model/validation-function.php");
+
+// Start session
+session_start();
 
 // Instantiate Fat-Free
 $f3 = Base::Instance();

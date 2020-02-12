@@ -6,8 +6,8 @@
 </head>
 <body>
 <h1>Results:</h1>
-<h2>Your pets name is {{ @SESSION.pet->getName() }}</h2>
-<h2>{{ @SESSION.pet->getName() }} is {{ @SESSION.pet->talk() }}</h2>
+<h2>Your pet's name is {{ @SESSION.pet->getName() }}</h2>
+<h2>Your {{ @SESSION.pet->getLength() }} snake, {{ @SESSION.pet->getName() }} is {{ @SESSION.pet->talk() }}</h2>
 <h2>{{ @SESSION.pet->getName() }}'s color is {{ @SESSION.pet->getColor() }}</h2>
 </body>
 </html>

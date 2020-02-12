@@ -51,6 +51,9 @@ class defaultController
 
 	public function form2()
 	{
+        $_SESSION['pet']->setColor("Select a color");
+        $_SESSION['pet']->setName("");
+
 		if ($_SERVER['REQUEST_METHOD'] == "POST"){
 			$_SESSION['pet']->setColor($_POST['color']);
 			$_SESSION['pet']->setName($_POST['name']);

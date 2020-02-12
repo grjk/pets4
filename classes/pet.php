@@ -3,12 +3,29 @@
 class Pet {
     private $_name;
     private $_color;
+    private $_type;
 
     // Default constructor / Parameterized constructor
     function __construct($name = "unknown", $color = "?") {
         $this->_name = $name;
         $this->_color = $color;
     }
+
+	/**
+	 * @return mixed
+	 */
+	public function getType() {
+		return $this->_type;
+	}
+
+	/**
+	 * @param mixed $type
+	 */
+	public function setType($type) {
+		$this->_type=$type;
+	}
+
+
 
     function getName() {
         return $this->_name;

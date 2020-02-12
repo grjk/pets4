@@ -10,10 +10,11 @@ class Snake extends Pet {
 	 * @param string $_name
 	 * @param string $_color
 	 */
-	public function __construct($_length = "1", $_name = "unknown", $_color ="?") {
+	public function __construct($_name = "unknown", $_color ="?", $_length = "1") {
 		$this->_length=$_length;
 		parent::setName($_name);
 		parent::setColor($_color);
+		parent::setType("Snake");
 	}
 
 

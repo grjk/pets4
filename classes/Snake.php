@@ -19,7 +19,7 @@ class Snake extends Pet {
 
 
 	public function talk() {
-		echo "sssssSSSsssSSS-ing";
+		echo $this->getLength() . " length and is sssssSSSsssSSS-ing";
 	}
 
 	/**

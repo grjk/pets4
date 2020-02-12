@@ -19,6 +19,8 @@ class defaultController
 
 	public function form1()
 	{
+        $_SESSION['animal'] = "";
+
 		if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 			$animal = $_POST['animal'];
 

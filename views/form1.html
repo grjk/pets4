@@ -7,7 +7,7 @@
 <body>
 <form method="post" action="#">
     <label>Animal:
-        <input type="text" name="animal" value="{{ @SESSION.pet->getType() }}">
+        <input type="text" name="animal" value="{{ @SESSION['animal'] }}">
     </label>
     <input type="submit" value="Submit">
 </form>
